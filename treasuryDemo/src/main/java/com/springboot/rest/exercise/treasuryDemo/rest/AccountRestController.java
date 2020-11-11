@@ -8,22 +8,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.rest.exercise.treasuryDemo.dao.AccountDAO;
-import com.springboot.rest.exercise.treasuryDemo.entity.Account;;
+import com.springboot.rest.exercise.treasuryDemo.entity.Account;
+import com.springboot.rest.exercise.treasuryDemo.service.AccountService;;
 
 @RestController
 @RequestMapping("/api")
 public class AccountRestController {
-	private AccountDAO accountDAO;
+	//use the service
+	private AccountService accountService;
 	
 	// inject account dao
 	@Autowired
-	public AccountRestController(AccountDAO theAccountDAO) {
-		accountDAO = theAccountDAO;
+	public AccountRestController(AccountService theAccountDAO) {
+		accountService = theAccountDAO;
 	}
 	
 	// expose /account and return list of clients
 	@GetMapping("/accounts")
 	public List<Account> findAll(){
-		return accountDAO.findAll();
+		return accountService.findAll();
 	}
 }
