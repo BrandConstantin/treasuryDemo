@@ -7,3 +7,5 @@ Steps:
 3. create client and treasury entities
 4. create dao interface and dao implementation
 5. create rest controller to use dao
+6. create the CRUD methods
+7. create the service
